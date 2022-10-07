@@ -1,26 +1,30 @@
 package lecture_manager;
 
 import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
 
-import java.time.Period;
+import java.util.ArrayList;
+//import java.util.Objects;
 
 public class Student {
     // Fields
     private String name;
     private int age;
-    private LocalDate dob;
+    private DateTime dob;
     private long id;
-    private String course;      // String until CourseProgramme class is done
-    private int[] modules;      // Array of ints until Module class is done
+    private CourseProgramme course;                // String until CourseProgramme class is done
+    private ArrayList<CollegeModule> modules;      // Array of ints until Module class is done
 
-    public Student(String _name, int _age, String _dobString, long _id, String _course, int[] _modules) {
+    public Student(String _name,
+                   String _dobString,
+                   long _id,
+                   CourseProgramme _course) {
         this.name = _name;
-        this.age = _age;
-        this.dob = new LocalDate(_dobString);
+        this.dob = DateTime.parse(_dobString);
         this.id = _id;
         this.course = _course;
-        this.modules = _modules;
+        age = new Period(dob, DateTime.now(), PeriodType.yearMonthDay()).getYears();
     }
 
     // -------------------- Accessor Methods -----------------------
@@ -28,18 +32,19 @@ public class Student {
         return name;
     }
     public int getAge() {
+        age = new Period(dob, DateTime.now(), PeriodType.yearMonthDay()).getYears();
         return age;
     }
-    public LocalDate getDob() {
+    public DateTime getDob() {
         return dob;
     }
     public long getId() {
         return id;
     }
-    public String getCourse() {
+    public CourseProgramme getCourse() {
         return course;
     }
-    public int[] getModules() {
+    public ArrayList<CollegeModule> getModules() {
         return modules;
     }
     public String getUsername() {
@@ -50,19 +55,31 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
     public void setId(long id) {
         this.id = id;
     }
-    public void setCourse(String course) {
-        this.course = course;
+    public void setDob(String newDobString) {
+        this.dob = DateTime.parse(newDobString);
     }
-    public void setModules(int[] modules) {
+    public void setCourse(CourseProgramme course) {
+        this.course = course;
+        this.setModules(course.getModuleList());
+    }
+    public void setModules(ArrayList<CollegeModule> modules) {
         this.modules = modules;
     }
+/*
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Student) {
+            Student stdnt = (Student) obj;
+            if(this == obj) {
+                return true;
+            }
+            return this.name.equals(stdnt.name) && (this.age == stdnt.age)
+                    && (this.id == stdnt.id) && this.dob.equals(stdnt.dob);
+        } else {
+            return false;
+        }
+    }*/
 }

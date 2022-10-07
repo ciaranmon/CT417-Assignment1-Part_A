@@ -1,21 +1,26 @@
 package lecture_manager;
 
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
+
+import java.util.ArrayList;
 
 public class Lecturer {
     // Fields
     String name;
     int age;
-    LocalDate dob;
+    DateTime dob;
     long id;
-    int[] modulesTeaching;
+    ArrayList<CollegeModule> modulesTeaching;
 
-    public Lecturer(String _name, int _age, String _dobString, long _id, int[] _modules) {
+    public Lecturer(String _name, String _dobString, long _id) {
         this.name = _name;
-        this.age = _age;
-        this.dob = new LocalDate(_dobString);
+        this.dob = DateTime.parse(_dobString);
         this.id = _id;
-        this.modulesTeaching = _modules;
+        modulesTeaching = new ArrayList<>();
+        //this.modulesTeaching = _modules;
+        age = new Period(dob, DateTime.now(), PeriodType.yearMonthDay()).getYears();
     }
 
     // --------------- Accessor Methods ----------------
@@ -23,15 +28,16 @@ public class Lecturer {
         return name;
     }
     public int getAge() {
+        this.age = new Period(dob, DateTime.now(), PeriodType.yearMonthDay()).getYears();
         return age;
     }
-    public LocalDate getDob() {
+    public DateTime getDob() {
         return dob;
     }
     public long getId() {
         return id;
     }
-    public int[] getModulesTeaching() {
+    public ArrayList<CollegeModule> getModulesTeaching() {
         return modulesTeaching;
     }
     public String getUsername() {
@@ -42,16 +48,17 @@ public class Lecturer {
     public void setName(String _name) {
         this.name = _name;
     }
-    public void setAge(int _age) {
-        this.age = _age;
-    }
-    public void setDob(LocalDate _dob) {
-        this.dob = _dob;
+    public void setDob(String _dobString) {
+        this.dob = DateTime.parse(_dobString);
     }
     public void setId(long _id) {
         this.id = _id;
     }
-    public void setModulesTeaching(int[] _modulesTeaching) {
+    public void setModulesTeaching(ArrayList<CollegeModule> _modulesTeaching) {
         this.modulesTeaching = _modulesTeaching;
+    }
+
+    public void addModule(CollegeModule newModule) {
+        modulesTeaching.add(newModule);
     }
 }
