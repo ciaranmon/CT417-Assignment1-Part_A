@@ -56,7 +56,13 @@ public class CollegeModule {
     public void addStudent(Student newStudent) {
         students.add(newStudent);
     }
+    public boolean removeStudent(Student oldStudent) {
+        return students.remove(oldStudent);
+    }
     public void addCourse(CourseProgramme newCourse) {
         courses.add(newCourse);
+    }
+    public boolean removeCourse(CourseProgramme oldCourse) {
+        return courses.remove(oldCourse);
     }
 }

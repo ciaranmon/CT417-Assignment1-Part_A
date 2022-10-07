@@ -40,8 +40,17 @@ public class CollegeModuleTest {
     CourseProgramme newCp = new CourseProgramme("Computer Science", "2023-09-01", "2027-05-01");
     Student newStudent = new Student("Alan Turing", "1912-06-23", 123456789L, newCp);
     @Test
-    public void collegeModuleArrayAdditions() {
+    public void collegeModuleListEditing() {
         softwareEng.addCourse(newCp);
+        Assertions.assertEquals(newCp, softwareEng.getCourses().get(0));
+
         softwareEng.addStudent(newStudent);
+        Assertions.assertEquals(newStudent, softwareEng.getStudents().get(0));
+
+        Assertions.assertTrue(softwareEng.removeCourse(newCp));
+        Assertions.assertTrue(softwareEng.getCourses().isEmpty());
+
+        Assertions.assertTrue(softwareEng.removeStudent(newStudent));
+        Assertions.assertTrue(softwareEng.getStudents().isEmpty());
     }
 }
