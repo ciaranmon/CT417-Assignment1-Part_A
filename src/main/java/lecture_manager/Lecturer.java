@@ -3,7 +3,6 @@ package lecture_manager;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
-
 import java.util.ArrayList;
 
 public class Lecturer {
@@ -58,7 +57,11 @@ public class Lecturer {
         this.modulesTeaching = _modulesTeaching;
     }
 
+    // Editing module list
     public void addModule(CollegeModule newModule) {
         modulesTeaching.add(newModule);
+    }
+    public boolean removeModule(CollegeModule oldModule) {
+        return modulesTeaching.remove(oldModule);
     }
 }
