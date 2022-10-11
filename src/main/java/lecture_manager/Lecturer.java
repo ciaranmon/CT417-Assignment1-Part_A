@@ -64,4 +64,21 @@ public class Lecturer {
     public boolean removeModule(CollegeModule oldModule) {
         return modulesTeaching.remove(oldModule);
     }
+
+    @Override
+    public String toString() {
+        String str = "Lecturer: " + this.name;
+        str += "\n\t";
+        str += "Name: " + this.name;
+        str += "\n\t";
+        str += "Date of Birth: " +
+                this.dob.getDayOfMonth() + "/" +
+                this.dob.getMonthOfYear() + "/" +
+                this.dob.getYear();
+        str += "\n\t";
+        str += "ID: " + this.id;
+        str += "\n";
+
+        return str;
+    }
 }

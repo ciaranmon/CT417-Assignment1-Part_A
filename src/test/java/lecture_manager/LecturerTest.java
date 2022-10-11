@@ -50,4 +50,9 @@ public class LecturerTest {
         Assertions.assertTrue(michael.removeModule(newModule));
         Assertions.assertTrue(michael.getModulesTeaching().isEmpty());
     }
+
+    @Test
+    public void lecturerToString() {
+        System.out.println(michael);
+    }
 }

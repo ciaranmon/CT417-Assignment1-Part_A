@@ -65,4 +65,14 @@ public class CollegeModule {
     public boolean removeCourse(CourseProgramme oldCourse) {
         return courses.remove(oldCourse);
     }
+
+    @Override
+    public String toString() {
+        String str = "Module: " + this.name;
+        str += "\n\t";
+        str += "Module ID: " + this.id;
+        str += "\n";
+
+        return str;
+    }
 }

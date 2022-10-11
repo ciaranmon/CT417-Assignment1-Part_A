@@ -53,4 +53,9 @@ public class CollegeModuleTest {
         Assertions.assertTrue(softwareEng.removeStudent(newStudent));
         Assertions.assertTrue(softwareEng.getStudents().isEmpty());
     }
+
+    @Test
+    public void collegeModuleToString() {
+        System.out.println(softwareEng);
+    }
 }

@@ -82,4 +82,22 @@ public class Student {
             return false;
         }
     }*/
+
+    @Override
+    public String toString() {
+        String str = "Student:";
+        str += this.name;
+        str += "\n\t";
+        str += "Date of Birth: " +
+                this.dob.getDayOfMonth() + "/" +
+                this.dob.getMonthOfYear() + "/" +
+                this.dob.getYear();
+        str += "\n\t";
+        str += "ID: " + this.id;
+        str += "\n\t";
+        str += "Username: " + this.getUsername();
+        str += "\n";
+
+        return str;
+    }
 }

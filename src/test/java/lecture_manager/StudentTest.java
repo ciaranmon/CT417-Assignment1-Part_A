@@ -46,4 +46,9 @@ public class StudentTest {
         ciaran.setModules(ciaransModules);
         Assertions.assertEquals(ciaransModules, ciaran.getModules());
     }
+
+    @Test
+    public void studentToString() {
+        System.out.println(ciaran);
+    }
 }

@@ -60,4 +60,9 @@ public class CourseProgrammeTest {
         Assertions.assertTrue(ece.removeModule(softwareEng));
         Assertions.assertTrue(ece.getModuleList().isEmpty());
     }
+
+    @Test
+    public void courseProgrammeToString() {
+        System.out.println(ece);
+    }
 }

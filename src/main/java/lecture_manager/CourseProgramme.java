@@ -89,4 +89,37 @@ public class CourseProgramme {
 //            return false;
 //        }
 //    }
+
+    @Override
+    public String toString() {
+        String str = "Course: ";
+        str += this.name;
+        str += "\n\t";
+        str += "Course Start Date: " +
+                this.startDate.getDayOfMonth() + "/" +
+                this.startDate.getMonthOfYear() + "/" +
+                this.startDate.getYear();
+        str += "\n\t";
+        str += "Course End Date: " +
+                this.endDate.getDayOfMonth() + "/" +
+                this.endDate.getMonthOfYear() + "/" +
+                this.endDate.getYear();
+        str += "\n";
+
+//        if(!moduleList.isEmpty()){
+//            for(CollegeModule m : this.moduleList) {
+//                str = str + "\n" + m;
+//            }
+//        }
+//        str += "\nStudents enrolled:";
+//
+//        if(!studentsEnrolled.isEmpty()) {
+//            for(Student s : this.studentsEnrolled) {
+//                str += "\n" + s;
+//            }
+//            str += "\n";
+//        }
+
+        return str;
+    }
 }
