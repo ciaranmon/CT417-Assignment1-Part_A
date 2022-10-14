@@ -64,6 +64,7 @@ public class Student {
     public void setCourse(CourseProgramme course) {
         this.course = course;
         this.setModules(course.getModuleList());
+        this.course.addStudent(this);
     }
     public void setModules(ArrayList<CollegeModule> modules) {
         this.modules = modules;

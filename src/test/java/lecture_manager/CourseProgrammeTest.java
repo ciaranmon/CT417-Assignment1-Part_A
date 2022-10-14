@@ -49,13 +49,13 @@ public class CourseProgrammeTest {
         ece.addModule(softwareEng);
         Assertions.assertEquals(softwareEng, ece.getModuleList().get(0));
 
-        ece.addStudent(ciaran);
-        Assertions.assertEquals(ciaran, ece.getStudentsEnrolled().get(0));
-        Assertions.assertEquals(ciaran, ece.getModuleList().get(0).getStudents().get(0));
-
         Assertions.assertTrue(ece.removeStudent(ciaran));
         Assertions.assertTrue(ece.getStudentsEnrolled().isEmpty());
         Assertions.assertTrue(ece.getModuleList().get(0).getStudents().isEmpty());
+
+        ece.addStudent(ciaran);
+        Assertions.assertEquals(ciaran, ece.getStudentsEnrolled().get(0));
+        Assertions.assertEquals(ciaran, ece.getModuleList().get(0).getStudents().get(0));
 
         Assertions.assertTrue(ece.removeModule(softwareEng));
         Assertions.assertTrue(ece.getModuleList().isEmpty());
