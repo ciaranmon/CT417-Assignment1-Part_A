@@ -76,20 +76,6 @@ public class CourseProgramme {
         return studentsEnrolled.remove(oldStudent);
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if(obj instanceof CourseProgramme) {
-//            CourseProgramme cp = (CourseProgramme) obj;
-//
-//            if(this == cp) {
-//                return true;
-//            }
-//            return this.name.equals(cp.name) && this.startDate.equals(cp.startDate) && this.endDate.equals(cp.endDate);
-//        } else {
-//            return false;
-//        }
-//    }
-
     @Override
     public String toString() {
         String str = "Course: ";
@@ -105,20 +91,6 @@ public class CourseProgramme {
                 this.endDate.getMonthOfYear() + "/" +
                 this.endDate.getYear();
         str += "\n";
-
-//        if(!moduleList.isEmpty()){
-//            for(CollegeModule m : this.moduleList) {
-//                str = str + "\n" + m;
-//            }
-//        }
-//        str += "\nStudents enrolled:";
-//
-//        if(!studentsEnrolled.isEmpty()) {
-//            for(Student s : this.studentsEnrolled) {
-//                str += "\n" + s;
-//            }
-//            str += "\n";
-//        }
 
         return str;
     }

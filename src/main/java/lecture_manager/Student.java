@@ -23,7 +23,7 @@ public class Student {
         this.name = _name;
         this.dob = DateTime.parse(_dobString);
         this.id = _id;
-        this.course = _course;
+        this.setCourse(_course);
         age = new Period(dob, DateTime.now(), PeriodType.yearMonthDay()).getYears();
     }
 
@@ -68,24 +68,10 @@ public class Student {
     public void setModules(ArrayList<CollegeModule> modules) {
         this.modules = modules;
     }
-/*
-    @Override
-    public boolean equals(Object obj) {
-        if(obj instanceof Student) {
-            Student stdnt = (Student) obj;
-            if(this == obj) {
-                return true;
-            }
-            return this.name.equals(stdnt.name) && (this.age == stdnt.age)
-                    && (this.id == stdnt.id) && this.dob.equals(stdnt.dob);
-        } else {
-            return false;
-        }
-    }*/
 
     @Override
     public String toString() {
-        String str = "Student:";
+        String str = "Student: ";
         str += this.name;
         str += "\n\t";
         str += "Date of Birth: " +
