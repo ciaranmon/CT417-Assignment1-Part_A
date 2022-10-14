@@ -50,6 +50,7 @@ public class CollegeModule {
     }
     public void setLecturer(Lecturer lecturer) {
         this.lecturer = lecturer;
+        this.lecturer.addModule(this);
     }
 
     // Editing ArrayLists
